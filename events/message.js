@@ -8,7 +8,7 @@ module.exports = (client, message) => {
     const command = arguments.shift().toLowerCase();
 
     // TEsting
-    console.log(`[${message.author.username}] ${message.content}`);
+    console.log(`[${message.author.username}]:\"${message.content}\"`);
 
     let Command = client.commands.get(command);
     if(!Command) return;
