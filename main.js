@@ -12,12 +12,12 @@ const client = new Discord.Client();
 client.commands = new Discord.Collection();
 
 // Controlador de comandos.
-for(const file of readdirSync('./Commands/')){
+for(const file of readdirSync('./commands/')){
 
     // Filtro de archivos.
     if(file.endsWith('.js')){
         let fileName = file.substring(0, file.length - 3);
-        let fileContent = require(`./Commands/${file}`);
+        let fileContent = require(`./commands/${file}`);
         client.commands.set(fileName, fileContent);
     }
 }
@@ -27,10 +27,10 @@ for(const file of readdirSync('./Events/')){
     // Filtro de archivos.
     if(file.endsWith('.js')){
         let fileName = file.substring(0, file.length - 3);
-        let fileContent = require(`/Events/${file}`);
+        let fileContent = require(`/events/${file}`);
         client.on(fileName, fileContent.bind(null, client));
 
-        delete require.cache[require.resolve(`./Events/${file}`)];
+        delete require.cache[require.resolve(`./events/${file}`)];
     }
 }
 
