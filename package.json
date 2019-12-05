@@ -12,6 +12,7 @@
   "dependencies": {
     "discord.js": "^11.5.1",
     "dotenv": "^8.2.0",
+    "ffmpeg-static": "^2.7.0",
     "weez": "^1.5.7"
   }
 }
