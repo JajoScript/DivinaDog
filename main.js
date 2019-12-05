@@ -23,11 +23,11 @@ for(const file of readdirSync('./commands/')){
 }
 
 // Controlador de Eventos.
-for(const file of readdirSync('./Events/')){
+for(const file of readdirSync('./events/')){
     // Filtro de archivos.
     if(file.endsWith('.js')){
         let fileName = file.substring(0, file.length - 3);
-        let fileContent = require(`/events/${file}`);
+        let fileContent = require(`./events/${file}`);
         client.on(fileName, fileContent.bind(null, client));
 
         delete require.cache[require.resolve(`./events/${file}`)];
