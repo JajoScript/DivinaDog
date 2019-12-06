@@ -16,8 +16,9 @@ module.exports = (client, message, arguments) => {
         .addField('flipcoin', 'Lanzo una moneda al aire', true)
         .addField('cookie', 'Un comando para regalar galletas', true)
         .addField('8ball', 'Te doy la respuesta a las preguntas que te alteran la existencia', true)
+        .addField('bot', 'Te entrego información sobre mi', true)
         .addField('Invitacion', `[Link de invitacion](${process.env.INVITATION || 'javier.com'})`, true)
-        .setFooter("Version 1.0", client.user.avatarURL)
+        .setFooter(`Version ${process.env.VERSION || "1.0"}`, client.user.avatarURL)
         .setColor('#56d44a')
         
     message.author.send(embed);
