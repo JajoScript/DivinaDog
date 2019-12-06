@@ -2,13 +2,13 @@
   "name": "divina-bot",
   "version": "1.0.0",
   "description": "",
-  "main": "config.js",
+  "main": "main.js",
   "scripts": {
     "start": "node main.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Jajoscript",
+  "license": "MIT",
   "dependencies": {
     "discord.js": "^11.5.1",
     "dotenv": "^8.2.0",
