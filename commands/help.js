@@ -7,12 +7,13 @@ module.exports = (client, message, arguments) => {
 
     const embed = new Discord.RichEmbed()
         .setAuthor(message.author.username, message.author.avatarURL)
-        .addField('Ping', 'Compueba la latencia del BOT con la API de discord', true)
-        .addField('Avatar', 'Muestra el avatar de un usuario', true)
-        .addField('Server', 'Muestra información de un servidor', true)
+        .addField('ping', 'Compueba la latencia del BOT con la API de discord.', true)
+        .addField('avatar', 'Muestra el avatar de un usuario.', true)
+        .addField('server', 'Muestra información de un servidor.', true)
+        .addField('clear', 'Limpia una cantidad de mensajes.', true)
         .addField('Invitacion', '[Link de invitacion](https://discord.gg/g6ssSmK)', true)
         .setFooter("Version 1.0", client.user.avatarURL)
-        .setColor(0x66b3ff)
+        .setColor('#56d44a')
         
     message.author.send(embed);
 }

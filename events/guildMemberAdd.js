@@ -15,5 +15,11 @@ module.exports = async (client, member) => {
         .acceso(weez)
     
     let img = await Weez.bienvenidaRender(welcome);
-    member.guild.channels.get(process.env.CHANNEL_ID).send({files: [img]});
+    member.guild.channels
+        .find(x => x.name === 'general')
+        .send({files: [img]})
+        .catch((error) => {
+            console.error(error);
+        });
+    // member.guild.channels.get(process.env.CHANNEL_ID).send({files: [img]});
 }
