@@ -1,6 +1,7 @@
-// Dependencies.
+// Importación de dependencias.
 const Discord = require('discord.js');
 
+// Creación del comando.
 module.exports = (client, message, arguments) => {
     console.log(arguments);
     console.log(arguments[0]);

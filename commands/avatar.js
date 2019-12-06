@@ -1,5 +1,7 @@
+// Importación de dependencias.
 const Discord = require('discord.js');
 
+// Creación del comando.
 module.exports = (client, message, arguments) => {
     let person = message.mentions.users.first();
     if(!person){
