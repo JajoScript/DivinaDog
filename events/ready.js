@@ -3,7 +3,7 @@ module.exports = (client) => {
     client.user.setPresence({
         status : 'online',
         game :{
-            name: '#help | Info',
+            name: `${process.env.STATUS || '#help | Info'}`,
             url: null,
             type: "PLAYING"
         }

@@ -3,9 +3,10 @@ module.exports = (client, message) => {
     console.log(`[${message.author.username}]:\"${message.content}\"`);
     
     // Saludos
-    if(message.content.toLowerCase() == 'gd') return message.reply('buenos dias!');
-    else if(message.content.toLowerCase() == 'gn') return message.reply('buenas noches!');
-    
+    if(message.content.toLowerCase() == 'gd') return message.reply('Buenos dias!');
+    else if(message.content.toLowerCase() == 'gn') return message.reply('Buenas noches!');
+    else if(message.content.toLowerCase() == 'te amo') return message.reply('Yo te amo más!');
+
     // Control de errores.
     if(!message.content.startsWith(process.env.PREFIX)) return;
     if(message.author.bot) return;
