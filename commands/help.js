@@ -17,7 +17,8 @@ module.exports = (client, message, arguments) => {
         .addField('cookie', 'Un comando para regalar galletas', true)
         .addField('8ball', 'Te doy la respuesta a las preguntas que te alteran la existencia', true)
         .addField('bot', 'Te entrego información sobre mi', true)
-        .addField('Invitacion', `[Link de invitacion](${process.env.INVITATION || 'javier.com'})`, true)
+        .addField('instagram', 'Te entrego información el perfil de instagram que me entregues', true)
+        .addField('Invitacion', `[Link de invitacion](${process.env.INVITATION || 'http://javier.com'})`, true)
         .setFooter(`Version ${process.env.VERSION || "1.0"}`, client.user.avatarURL)
         .setColor('#56d44a')
         
