@@ -3,8 +3,6 @@ const Discord = require('discord.js');
 
 // Creación del comando.
 module.exports = (client, message, arguments) => {
-    console.log(arguments, "and", arguments[0],"and", arguments.length);
-
     if(!arguments[1]) return message.reply("Disculpe, necesita enviar una pregunta");
 
     let replies = ["Si.", "No.", "Creo que el Nene debe saber", "No cacho", "La cuestion social", "Muy seguramente", "Probablemente", "Preguntame despues"];
