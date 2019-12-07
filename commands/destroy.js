@@ -2,10 +2,7 @@
 
 // Creación del comando.
 module.exports = (client, message, arguments) => {
-    const developer = 'JAJO';
-    console.log(message.author.username);
-
-    if(message.author.username === 'JAJO'){
+    if(message.author.username === process.env.DEVELOPER || 'JAJO'){
         message.reply('Usted es el desarrollador, puede usar este comando');
         
         message.channel.send("Auto destruccion activada.")
