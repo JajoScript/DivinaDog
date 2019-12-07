@@ -20,6 +20,7 @@ module.exports = (client, message, arguments) => {
         .addField('instagram', 'Te entrego información el perfil de instagram que me entregues', true)
         .addField('destroy', 'Destruye la conexion del bot', true)
         .addField('cachipun', 'Te permite jugar al cachipun contra mi', true)
+        .addField('meme', 'Envio memes sacados de reddit', true)
         .addField('Invitacion', `[Link de invitacion](${process.env.INVITATION || 'http://javier.com'})`, true)
         .setFooter(`Version ${process.env.VERSION || "1.0"}`, client.user.avatarURL)
         .setColor('#56d44a')
