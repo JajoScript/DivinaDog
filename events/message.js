@@ -1,6 +1,6 @@
 module.exports = (client, message) => {
     // Testing
-    console.log(`[${message.author.username}]:\"${message.content}\"`);
+    console.log(`[${message.channel.name}][${message.author.username}]:\"${message.content}\"`);
     
     // Saludos
     if(message.content.toLowerCase() == 'gd') return message.reply('Buenos dias!');
