@@ -1,15 +1,20 @@
 module.exports = (client, message) => {
+    // Control de errores.
+    
+    if(!message.guild) return console.log(`[DM][@ ${message.author.username}]:\"${message.content}\"`);
+
     // Testing
-    console.log(`[${message.guild.name}][# ${message.channel.name}][@ ${message.author.username}]:\"${message.content}\"`);
+    console.log(`[${message.guild}][# ${message.channel.name}][@ ${message.author.username}]:\"${message.content}\"`);
+
+    if(!message.content.startsWith(process.env.PREFIX)) return;
+    if(message.author.bot) return;
+
+    
     
     // Saludos
     if(message.content.toLowerCase() == 'gd') return message.reply('Buenos dias!');
     else if(message.content.toLowerCase() == 'gn') return message.reply('Buenas noches!');
     else if(message.content.toLowerCase() == 'te amo') return message.reply('Yo te amo más!');
-
-    // Control de errores.
-    if(!message.content.startsWith(process.env.PREFIX)) return;
-    if(message.author.bot) return;
 
     //Definicion de comandos y argumentos.
     const arguments = message.content.slice(process.env.PREFIX.length).trim().split(/ +/g);
