@@ -27,6 +27,9 @@ module.exports = (client, message, arguments) => {
         .addField('sismo', 'Entrego información respecto al ultimo sismo', true)
         .addField('clima', 'Entrego información respecto al clima', true)
         .addField('chuck', 'Entrego chistes de chuck norris', true)
+        .addField('fish', 'Te permito ir de pesca', true)
+        .addField('chuck', 'Entrego chistes de chuck norris', true)
+        .addField('pokear', 'le hago spam al usuario que me indiques', true)
 
 
         .addField('Invitacion', `[Link de invitacion](${process.env.INVITATION || 'http://javier.com'})`, true)
