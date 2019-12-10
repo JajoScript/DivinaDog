@@ -25,6 +25,7 @@ module.exports = (client, message, arguments) => {
         .addField('report', 'Genero un reporte de una pesona que tenga un comportamiento inadecuado', true)
         .addField('bip', 'Envio los datos de la tarjeta bip que ingreses', true)
         .addField('sismo', 'Entrego información respecto al ultimo sismo', true)
+        .addField('clima', 'Entrego información respecto al clima', true)
 
         .addField('Invitacion', `[Link de invitacion](${process.env.INVITATION || 'http://javier.com'})`, true)
         .setFooter(`Version ${process.env.VERSION || "1.0"}`, client.user.avatarURL)
