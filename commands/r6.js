@@ -14,5 +14,8 @@ module.exports = async (client, message, arguments) => {
         return
     }
     
+    await r6api.getId(platform, username)
+        .then(response => console.log(`[RESPONSE] ${response}`))
+        .catch(error => console.error(`[ERROR] ${error}`));
     
 };
