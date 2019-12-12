@@ -14,8 +14,19 @@ module.exports = async (client, message, arguments) => {
         return
     }
     
-    await r6api.getId(platform, username)
-        .then(response => console.log(`[RESPONSE] ${response}`))
+    // Busqueda de ID.
+    const id = await r6api.getId(platform, username)
+        .then(response => {
+            console.log(`[RESPONSE] ${response} and ${response[0].id}`);
+            response[0].id;
+        })
+        .catch(error => console.error(`[ERROR] ${error}`));
+
+    const stats = await r6api.getStats(platform, id)
+        .then(response => {
+            console.log(`[RESPONSE] ${response} and ${response[0]}`);
+            response[0];
+        })
         .catch(error => console.error(`[ERROR] ${error}`));
     
 };
