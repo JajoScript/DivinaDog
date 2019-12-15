@@ -27,8 +27,17 @@ module.exports = async (client, message, arguments) => {
                 .addField("Repositorios:", profile.data.public_repos)
                 .addField(`Año:`, userData.data.contributions.year)
                 .addField(`Contribuciones este año:`, userData.data.contributions.total)
-                .addField(`Contribuciones Faltantes:`, 1000 - userData.data.contributions.total)
-                .addField(`Contribuciones por dia: `, parseInt(1000 / 31))
+
+            if(userData.data.contributions.total >= 1000){
+                githubEmbed
+                    .addField("Contribucones faltantes: ", "ya llego a los 1000")
+            }
+            else{
+                githubEmbed
+                    .addField(`Contribuciones Faltantes:`, 1000 - userData.data.contributions.total)
+                    .addField(`Contribuciones por dia: `, parseInt(1000 / 31))
+            }
+            
             
             message.channel.send(githubEmbed);
         })
