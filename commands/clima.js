@@ -4,12 +4,19 @@ const { RichEmbed } = require('discord.js');
 
 // Creación del componente.
 module.exports = async (client, message, arguments) => {
-    const dia = arguments.join(' ')
+    var dia = arguments.join(' ');
+    
     if(!dia){
-        message.reply("Use un numero junto al comando, siendo 1 lunes.");
+        message.reply("Use un numero junto al comando, siendo 1 el dia de hoy.");
         return
     }
-
+    if(dia == "hoy"){
+        dia = 1;
+    }
+    else if(dia == "mañana"){
+        dia = 2;
+    }
+    
     await axios.get('http://api.meteored.cl/index.php?api_lang=cl&localidad=18578&affiliate_id=tew8s642xtgv&v=3.0')
         .then(value => {
 
