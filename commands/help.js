@@ -30,7 +30,7 @@ module.exports = (client, message, arguments) => {
         .addField('fish', 'Te permito ir de pesca', true)
         .addField('chuck', 'Entrego chistes de chuck norris', true)
         .addField('pokear', 'le hago spam al usuario que me indiques', true)
-
+        .addField('github', 'Entrego información sobre el perfil de github', true)
 
         .addField('Invitacion', `[Link de invitacion](${process.env.INVITATION || 'http://javier.com'})`, true)
         .setFooter(`Version ${process.env.VERSION || "1.0"}`, client.user.avatarURL)
