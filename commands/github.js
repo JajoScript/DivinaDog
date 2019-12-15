@@ -15,9 +15,6 @@ module.exports = async (client, message, arguments) => {
             console.log(`[ERROR] ${error}`);
         });
     
-    console.log(profile);
-    console.log(profile.data.avatar_url);
-
     await axios.get(`https://github-contributions-api.now.sh/v1/${username}?format=nested`)
         .then( userData => {
 
