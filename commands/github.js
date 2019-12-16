@@ -1,9 +1,14 @@
 // Importación de las dependencias.
 const axios = require('axios');
 const {RichEmbed} = require('discord.js');
+const countdown = require('countdown');
 
 // Creacion del comando.
 module.exports = async (client, message, arguments) => {
+    var time = countdown(Date.now() , new Date(2020,0,1));
+    console.log(time);
+    console.log(time.days);
+
     const username = arguments.join(' ');
     if(!username){
         message.reply("Disculpe, necesito un username para trabajar");
@@ -24,7 +29,7 @@ module.exports = async (client, message, arguments) => {
                 .setTitle(`Usuario: ${username}`)
                 .addField("Nombre:", profile.data.name)
                 .addField("Locación:", profile.data.location)
-                .addField("Repositorios:", profile.data.public_repos)
+                .addField("Repositorios Publicos:", profile.data.public_repos)
                 .addField(`Año:`, userData.data.contributions.year)
                 .addField(`Contribuciones este año:`, userData.data.contributions.total)
 
@@ -35,7 +40,8 @@ module.exports = async (client, message, arguments) => {
             else{
                 githubEmbed
                     .addField(`Contribuciones Faltantes:`, 1000 - userData.data.contributions.total)
-                    .addField(`Contribuciones por dia: `, parseInt(1000 / 31))
+                    .addField(`Dias Faltantes:`, parseInt(time.days))
+                    .addField(`Contribuciones por dia: `, parseInt((1000 - userData.data.contributions.total) / time.days))
             }
             
             
