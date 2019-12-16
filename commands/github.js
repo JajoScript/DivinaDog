@@ -15,6 +15,14 @@ module.exports = async (client, message, arguments) => {
         return
     };
     
+    message.channel.send(":hourglass: Cargando...")
+        .then(msg => {
+            msg.delete(3000);
+        })
+        .catch(error => {
+            console.log(`[ERROR] ${error}`);
+        });
+
     const profile = await axios.get(`https://api.github.com/users/${username}`)
         .catch(error => {
             console.log(`[ERROR] ${error}`);
