@@ -12,7 +12,6 @@ module.exports = async (client, message, arguments) => {
 
     // Catch User
     let bipUser = message.author.username;
-    console.log(`[BIP_USER] ${bipUser}`);
 
     // Bip Query
     const cardNumber = arguments.join(' ');
@@ -41,33 +40,28 @@ module.exports = async (client, message, arguments) => {
         // Save Bip
         Bip.findOne({
                 userID : message.author.id
-            }, (schema) => {
-                console.log(schema);
-
-                // if(!schema){
-                //     new_Schema = new Bip({
-                //         _id : mongoose.Types.ObjectId(),
-                //         username: bipUser,
-                //         userID : message.author.id,
-                //         bip: [`${cardNumber}`]
-                //     });
+            }, (error, schema) => {
+                
+                if(!schema){
+                    new_Schema = new Bip({
+                        _id : mongoose.Types.ObjectId(),
+                        username: bipUser,
+                        userID : message.author.id,
+                        bip: [`${cardNumber}`]
+                    });
         
-                //     console.log("[DB] creado nuevo bipUser");
+                    console.log("[DB] creado nuevo bipUser");
         
-                //     new_Schema.save()
-                //         .then(resultado => console.log(resultado))
-                //         .catch(err => console.log(err))
-                // }
-                // else if(schema){
-                //     schema
-                //         .updateOne({
-                //             bips: [`${cardNumber}`]
-                //         })
-                //         .catch((err)=>console.log(err));
-                // }
+                    new_Schema.save()
+                        .then(resultado => console.log(resultado))
+                        .catch(err => console.log(err))
+                }
+                else if(schema){
+                    console.log("[DB] Esquema encontrado!");
+                }
             })
         .then(() => {
-            console.log(`[DB] Bip save.`)
+            console.log(`[DB] Bip save.`);
         })
         .catch(error=>{
             console.log(`[Error] ${error}`);
