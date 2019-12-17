@@ -2,10 +2,6 @@
 const bip = require('bip');
 const {RichEmbed} = require('discord.js');
 const { format } = require('timeago.js');
-const fs = require('fs');
-
-// Importación de datos.
-let bipCards = JSON.parse(fs.readFileSync("./data/bip.json", "utf8"));
 
 // Creación del comando
 module.exports = async (client, message, arguments) => {
