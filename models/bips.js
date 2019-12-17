@@ -8,7 +8,7 @@ const BipSchema = new Schema({
     _id : mongoose.Schema.Types.ObjectId,
     userID: String,
     username : String,
-    bip: Array,
+    bip: Array
 });
 
 // Exports 

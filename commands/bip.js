@@ -50,7 +50,7 @@ module.exports = async (client, message, arguments) => {
                         bip: [`${cardNumber}`]
                     });
         
-                    console.log("[DB] creado nuevo bipUser");
+                    console.log("[DB] creado nuevo usuario bip");
         
                     new_Schema.save()
                         .then(resultado => console.log(resultado))
@@ -58,6 +58,25 @@ module.exports = async (client, message, arguments) => {
                 }
                 else if(schema){
                     console.log("[DB] Esquema encontrado!");
+                    console.log(schema);
+
+                    const cardFound = schema.bip.find(cards => cards == cardNumber);
+                    console.log(`[DB] cardFound : ${cardFound}`);
+
+                    if(!cardFound){
+                        console.log(`[DB] card: ${cardNumber} // not found`);
+                        
+                        schema.bip.push(cardNumber);
+                        
+                        schema.save()
+                            .then(resultado => console.log(resultado))
+                            .catch(err => console.log(err))
+
+                        console.log(`[DB] Card Added ${cardNumber}`);
+                    }
+                    else if(cardFound){
+                        console.log(`[DB] card: ${cardNumber} // found`);
+                    }
                 }
             })
         .then(() => {
