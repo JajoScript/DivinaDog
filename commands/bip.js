@@ -26,9 +26,9 @@ module.exports = async (client, message, arguments) => {
                 const bipEmbed = new RichEmbed()
                     .setColor("BLUE")
                     .setTitle(`Tarjeta: ${value.number}`)
-                    .addField('Estado: ', value.message)
-                    .addField('Saldo: ', value.balance)
-                    .addField('Ultimo uso: ', format(value.date))
+                    .addField(':fleur_de_lis: Estado: ', value.message)
+                    .addField(':moneybag: Saldo: ', value.balance)
+                    .addField(':floppy_disk: Ultimo uso: ', format(value.date))
 
                 message.reply(bipEmbed);
             })

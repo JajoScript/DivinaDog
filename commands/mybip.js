@@ -19,7 +19,7 @@ module.exports = (client, message, arguments) => {
         if(schema){
             const bipsEmbed = new RichEmbed()
                 .setColor("BLUE")
-                .setTitle("Mis tarjetas: ")
+                .setTitle(":credit_card: Mis tarjetas:")
                 .addField("Tarjetas: ", schema.bip)
 
             message.channel.send(bipsEmbed);
