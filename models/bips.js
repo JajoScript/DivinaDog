@@ -2,9 +2,9 @@
 const mongoose = require("mongoose");
 
 // Schema
-var Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
-var BipSchema = new Schema({
+const BipSchema = new Schema({
     _id : mongoose.Schema.Types.ObjectId,
     username : String,
     bip: Array,
