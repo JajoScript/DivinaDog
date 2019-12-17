@@ -28,6 +28,7 @@
     "rebuild": "^0.1.2",
     "superagent": "^5.1.2",
     "timeago.js": "^4.0.1",
-    "weez": "^1.5.7"
+    "weez": "^1.5.7",
+    "wikijs": "^6.0.1"
   }
 }
