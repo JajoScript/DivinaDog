@@ -11,4 +11,4 @@ var BipSchema = new Schema({
 });
 
 // Exports 
-module.exports = mongoose.model("informe" , InformeSchema);
+module.exports = mongoose.model("bips" , BipSchema);
