@@ -4,7 +4,7 @@ const superagent = require('superagent');
 
 // Creación del comando.
 module.exports = async (client, message, arguments) => {
-    let {body} = await superagent
+    let body = await superagent
     .get(`https://random.dog/woof.json`);
     
     let dogEmbed = new Discord.RichEmbed()
