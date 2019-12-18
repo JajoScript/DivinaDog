@@ -32,7 +32,7 @@ for(const file of readdirSync("./events/")){
 
         delete require.cache[require.resolve("./events/" + file)];
     }
-};
+}
 
 // Inicio de sesión
 client.login(process.env.TOKEN)
