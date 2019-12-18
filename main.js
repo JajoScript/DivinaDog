@@ -28,8 +28,8 @@ for(const file of readdirSync("./events/")){
     // Filtro de archivos.
     if(file.endsWith(".js")){
         let fileName = file.substring(0, file.length - 3);
-        let named = "./events/" + file;
-        let fileContent = require(named);
+        let named2 = "./events/" + file;
+        let fileContent = require(named2);
         client.on(fileName, fileContent.bind(null, client));
 
         delete require.cache[require.resolve(named)];
