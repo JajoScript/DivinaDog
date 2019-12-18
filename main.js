@@ -17,8 +17,7 @@ for(const file of readdirSync("./commands/")){
     // Filtro de archivos.
     if(file.endsWith(".js")){
         let fileName = file.substring(0, file.length - 3);
-        let named = "./commands/" + file;
-        let fileContent = require(named);
+        let fileContent = require("./commands/" + file);
         client.commands.set(fileName, fileContent);
     }
 }
@@ -28,8 +27,7 @@ for(const file of readdirSync("./events/")){
     // Filtro de archivos.
     if(file.endsWith(".js")){
         let fileName = file.substring(0, file.length - 3);
-        let named2 = "./events/" + file;
-        let fileContent = require(named2);
+        let fileContent = require("./events/" + file);
         client.on(fileName, fileContent.bind(null, client));
 
         delete require.cache[require.resolve("./events/" + file)];
