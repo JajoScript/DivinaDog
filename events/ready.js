@@ -1,11 +1,11 @@
 // Importación de dependencias.
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 // Creación del Evento.
 module.exports = (client) => {
     // Set Status
     client.user.setPresence({
-        status : 'online',
+        status : "online",
         game :{
             name: `${process.env.STATUS || `${process.env.PREFIX || '$'}help | Default mode`}`,
             url: null,
@@ -18,7 +18,7 @@ module.exports = (client) => {
         .then(() => {
             console.log("[DB] Base de datos conectada!");
         })
-        .catch(error => {
+        .catch((error) => {
             console.log("[DB] Base de datos no conectada!");
             console.log(error);
         });
