@@ -1,9 +1,9 @@
 // Importación de variables de entorno.
-require('dotenv').config();
+require("dotenv").config();
 
 // Importación de modulos.
-const Discord = require('discord.js');
-let { readdirSync } = require('fs');
+const Discord = require("discord.js");
+let { readdirSync } = require("fs");
 
 // Instanciación de la clase Discord.
 const client = new Discord.Client();
@@ -12,33 +12,33 @@ const client = new Discord.Client();
 client.commands = new Discord.Collection();
 
 // Controlador de comandos.
-for(const file of readdirSync('./commands/')){
+for(const file of readdirSync("./commands/")){
 
     // Filtro de archivos.
-    if(file.endsWith('.js')){
+    if(file.endsWith(".js")){
         let fileName = file.substring(0, file.length - 3);
-        let fileContent = require(`./commands/${file}`);
+        let fileContent = require("./commands/" + file);
         client.commands.set(fileName, fileContent);
     }
 }
 
 // Controlador de Eventos.
-for(const file of readdirSync('./events/')){
+for(const file of readdirSync("./events/")){
     // Filtro de archivos.
-    if(file.endsWith('.js')){
+    if(file.endsWith(".js")){
         let fileName = file.substring(0, file.length - 3);
-        let fileContent = require(`./events/${file}`);
+        let fileContent = require("./events/" + file);
         client.on(fileName, fileContent.bind(null, client));
 
-        delete require.cache[require.resolve(`./events/${file}`)];
+        delete require.cache[require.resolve("./events/" + file)];
     }
 }
 
 // Inicio de sesión
 client.login(process.env.TOKEN)
-    .then(()=>{
-        console.log(`Estoy listo, soy ${client.user.tag}`);
+    .then(() => {
+        // console.log(`Estoy listo, soy ${client.user.tag}`);
     })
-    .catch((error)=>{
-        console.error('[ERROR] Error al iniciar sesión', error);
-    })
+    .catch((error) => {
+        // console.error('[ERROR] Error al iniciar sesión', error);
+    });

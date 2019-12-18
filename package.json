@@ -20,13 +20,17 @@
     "ffmpeg-static": "^2.7.0",
     "moment": "^2.24.0",
     "moment-duration-format": "^2.3.2",
+    "mongoose": "^5.8.1",
     "node-fetch": "^2.6.0",
     "node-gyp": "^6.0.1",
     "opusscript": "0.0.7",
+    "r6api.js": "^1.1.0",
     "random-puppy": "^1.1.0",
     "rebuild": "^0.1.2",
     "superagent": "^5.1.2",
     "timeago.js": "^4.0.1",
-    "weez": "^1.5.7"
+    "urban": "^0.3.2",
+    "weez": "^1.5.7",
+    "wikijs": "^6.0.1"
   }
 }
