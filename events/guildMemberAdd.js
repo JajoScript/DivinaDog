@@ -1,5 +1,5 @@
 // Importación del modulo.
-const Weez = require('weez');
+const Weez = require("weez");
 
 module.exports = async (client, member) => {
     // console.log(`[Usuario nuevo]:[${member.user.username}]`);
@@ -16,7 +16,7 @@ module.exports = async (client, member) => {
     
     let img = await Weez.bienvenidaRender(welcome);
     member.guild.channels
-        .find((x) => x.name === 'general')
+        .find((x) => x.name === "general")
         .send({files: [img]})
         .catch((error) => {
             // console.error(error);
