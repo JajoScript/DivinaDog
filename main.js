@@ -32,7 +32,7 @@ for(const file of readdirSync("./events/")){
         let fileContent = require(named2);
         client.on(fileName, fileContent.bind(null, client));
 
-        delete require.cache[require.resolve(named)];
+        delete require.cache[require.resolve("./events/" + file)];
     }
 }
 
