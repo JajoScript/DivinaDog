@@ -26,6 +26,20 @@ module.exports = (client, message, arguments) => {
         }
         else if(!schema){
             message.reply("Usted no tiene tarjetas registradas!");
+
+            // New schema
+            new_Schema = new Bip({
+                _id : mongoose.Types.ObjectId(),
+                username: bipUser,
+                userID : message.author.id,
+                bip: [`${cardNumber}`]
+            });
+
+            console.log("[DB] creado nuevo usuario bip");
+
+            new_Schema.save()
+                .then(resultado => console.log(resultado))
+                .catch(err => console.log(err))
         }
 
     })
