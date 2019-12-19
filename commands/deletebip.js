@@ -26,7 +26,6 @@ module.exports = async (client, message, arguments) => {
             }
 
             else if(schema){
-                message.reply("Usted tiene tarjetas registradas!");
                 console.log("[Bips]", schema.bip);
                 
                 const cardFound = schema.bip.find(cards => cards == cardNumber);

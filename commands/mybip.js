@@ -15,8 +15,8 @@ module.exports = (client, message, arguments) => {
             console.log(`[ERROR] ${error}`);
         }
         
-        console.log(schema);
-        if(schema){
+        if(schema.bip.length > 0){
+            
             const bipsEmbed = new RichEmbed()
                 .setColor("BLUE")
                 .setTitle(":credit_card: Mis tarjetas:")
@@ -24,22 +24,9 @@ module.exports = (client, message, arguments) => {
 
             message.channel.send(bipsEmbed);
         }
-        else if(!schema){
+        else if(!schema || schema.bip.length <= 0){
             message.reply("Usted no tiene tarjetas registradas!");
-
-            // New schema
-            new_Schema = new Bip({
-                _id : mongoose.Types.ObjectId(),
-                username: bipUser,
-                userID : message.author.id,
-                bip: [`${cardNumber}`]
-            });
-
-            console.log("[DB] creado nuevo usuario bip");
-
-            new_Schema.save()
-                .then(resultado => console.log(resultado))
-                .catch(err => console.log(err))
+            message.reply("Para tener tarjetas registradas usar el comando $bip");
         }
 
     })
