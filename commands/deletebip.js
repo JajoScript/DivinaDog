@@ -12,35 +12,39 @@ module.exports = async (client, message, arguments) => {
 
     if(!cardNumber || cardNumber.length < 8){
         message.reply("Disculpe, necesito el numero de la bip para trabajar.");
+        return
     }
     else if(cardNumber){
-        Bip.findOneAndDelete({
+        Bip.findOne({
             userID : message.author.id
         }, (error, schema) => {
-            if(error){
-                console.log(error);
-            }
+            console.log(schema);
 
-            else if(!schema){
+            if(!schema){
                 message.reply("Usted no tiene tarjetas registradas!");
-    
-                // New schema
-                new_Schema = new Bip({
-                    _id : mongoose.Types.ObjectId(),
-                    username: bipUser,
-                    userID : message.author.id,
-                    bip: [`${cardNumber}`]
-                });
-    
-                console.log("[DB] creado nuevo usuario bip");
-    
-                new_Schema.save()
-                    .then(resultado => console.log(resultado))
-                    .catch(err => console.log(err));
+                return
             }
 
             else if(schema){
+                message.reply("Usted tiene tarjetas registradas!");
+                console.log("[Bips]", schema.bip);
+                
+                const cardFound = schema.bip.find(cards => cards == cardNumber);
+                console.log(`[DB] cardFound : ${cardFound}`);
 
+                if(!cardFound){
+                    message.reply("Usted no tiene registrada esa tarjeta!");
+                    return
+                }
+
+                schema.bip.pull(cardFound);
+
+                schema.save()
+                    .then(resultado => console.log(resultado))
+                    .catch(err => console.log(err))
+
+                console.log(`[DB] Card Deleted ${cardNumber}`);
+                message.reply("Se elimino la tarjeta de su registro.");
             }
         });
     }
