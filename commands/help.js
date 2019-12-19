@@ -24,6 +24,8 @@ module.exports = (client, message, arguments) => {
         .addField('love', 'Envio el porcentaje de amor entre dos personas', true)
         .addField('report', 'Genero un reporte de una pesona que tenga un comportamiento inadecuado', true)
         .addField('bip', 'Envio los datos de la tarjeta bip que ingreses', true)
+        .addField('mybip', 'Envio los datos de todas las tarjetas que a utilizado', true)
+        .addField('deletebip', 'Elimino la tarjeta ingresada de su registro', true)
         .addField('sismo', 'Entrego información respecto al ultimo sismo', true)
         .addField('clima', 'Entrego información respecto al clima', true)
         .addField('chuck', 'Entrego chistes de chuck norris', true)
