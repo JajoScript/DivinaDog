@@ -8,7 +8,7 @@ module.exports = (client, message, arguments) => {
     
     message.channel.send('**'+message.author.username+'**, Revisa tus mensajes privados.');
 
-    if(!numero || numero == 1){
+    if(!numero || numero === 1){
         const helpEmbed = new Discord.RichEmbed()
         .setTitle("Help Pagina 1")
         .setAuthor(message.author.username, message.author.avatarURL)
@@ -43,7 +43,7 @@ module.exports = (client, message, arguments) => {
 
         message.author.send(helpEmbed);
     }
-    else if(numero == 2){
+    else if(numero === 2){
         const helpEmbed = new Discord.RichEmbed()
         .setTitle("Help Pagina 2")
         .setAuthor(message.author.username, message.author.avatarURL)
@@ -52,6 +52,7 @@ module.exports = (client, message, arguments) => {
         .addField('zivalo', 'Envio un hermoso ZivaloFace', true)
 
         .addField('Invitacion', `[Link de invitacion](${process.env.INVITATION || 'http://javier.com'})`, true)
+        .addField('Repositorio', `[Link de github](${process.env.REPOSITORY || 'https://github.com/JajoScript/DivinaDog'})`, true)
         .setFooter(`Version ${process.env.VERSION || "1.0"}`, client.user.avatarURL)
         .setColor('#56d44a')
 
