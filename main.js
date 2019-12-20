@@ -45,7 +45,7 @@ app.get("/", (request, response) => {
 
 // Asignación de puerto.
 app.listen((process.env.PORT || 3000), () => {
-    console.log("[SERVER] Server ON PORT:", (process.env.PORT || 3000));
+    // console.log("[SERVER] Server ON PORT:", (process.env.PORT || 3000));
 });
 
 // Inicio de sesión
