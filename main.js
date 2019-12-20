@@ -3,6 +3,7 @@ require("dotenv").config();
 
 // Importación de modulos.
 const Discord = require("discord.js");
+const express = require('express');
 let { readdirSync } = require("fs");
 
 // Instanciación de la clase Discord.
@@ -34,8 +35,18 @@ for(const file of readdirSync("./events/")){
     }
 }
 
-
 // Creación del servidor.
+const app = express();
+
+// Rutas
+app.get("/", (request, response) => {
+    response.send("Hola Mundo");
+});
+
+// Asignación de puerto.
+app.listen((process.env.PORT || 3000), () => {
+    console.log("[SERVER] Server ON PORT:", (process.env.PORT || 3000));
+});
 
 // Inicio de sesión
 client.login(process.env.TOKEN)
