@@ -4,6 +4,21 @@
 [![Discord](https://discordapp.com/api/guilds/521334707686998026/widget.png)](https://divinadog.com/discord)
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
+***
+## Desarrollo
+
+* Javascript
+* Express
+* Node.js
+* MongoDB
+
+***
+## Uso
+
+Utilizar el comando *help* para más información respecto a los comandos.
+* Prefix: $
+
+***
 ## Variables de entorno
 En este projecto se utilizan las siguientes variables de entorno:  
 
@@ -35,6 +50,7 @@ En este projecto se utilizan las siguientes variables de entorno:
 ***
 Recordatorio, usar:
 
+**Almacenar variables de entorno en Heroku:**
+
     heroku config:set <variables de entorno>
 
-para almacenar en heroku las variables de entorno.
