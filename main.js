@@ -3,7 +3,7 @@ require("dotenv").config();
 
 // Importación de modulos.
 const Discord = require("discord.js");
-const express = require('express');
+const express = require("express");
 let { readdirSync } = require("fs");
 
 // Instanciación de la clase Discord.
