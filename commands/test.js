@@ -6,3 +6,4 @@ module.exports = async (client, message, arguments) => {
     console.log(texto);
     console.log("Testing");
 };
+

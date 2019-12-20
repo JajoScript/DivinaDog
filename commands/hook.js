@@ -5,8 +5,10 @@ const Discord = require('discord.js');
 module.exports = (client, message, arguments) => {
 
     if(message.author.username === process.env.DEVELOPER || 'JAJO'){
-        console.log(arguments);
+        // console.log(arguments);
 
+        message.channel.send("Usted es el desarrollador");
+        
         if(arguments.length < 1){
             message.channel.send('Sin contenido.');
         };
