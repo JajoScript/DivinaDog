@@ -54,4 +54,3 @@ Recordatorio, usar:
 **Almacenar variables de entorno en Heroku:**
 
     heroku config:set <variables de entorno>
-
