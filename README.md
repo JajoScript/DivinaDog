@@ -7,16 +7,17 @@
 ***
 ## Desarrollo
 
-* Javascript
-* Express
-* Node.js
-* MongoDB
+*   Javascript
+*   Express
+*   Node.js
+*   MongoDB
 
 ***
 ## Uso
 
-Utilizar el comando *help* para más información respecto a los comandos.
-* Prefix: $
+Utilizar el comando *help* para más información respecto a los comandos:
+
+*   Prefix: $
 
 ***
 ## Variables de entorno
