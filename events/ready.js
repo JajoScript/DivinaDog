@@ -16,7 +16,7 @@ module.exports = (client) => {
     // Database.
     mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true, useFindAndModify: false, useUnifiedTopology: true})
         .then(() => {
-            // console.log("[DB] Base de datos conectada!");
+            console.log("[DB] Base de datos conectada!");
         })
         .catch((error) => {
             // console.log("[DB] Base de datos no conectada!");

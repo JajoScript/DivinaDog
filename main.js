@@ -51,7 +51,7 @@ app.listen((process.env.PORT || 3000), () => {
 // Inicio de sesión
 client.login(process.env.TOKEN)
     .then(() => {
-        // console.log(`Estoy listo, soy ${client.user.tag}`);
+        console.log(`[BOT] Estoy listo, soy ${client.user.tag}`);
     })
     .catch((error) => {
         // console.error('[ERROR] Error al iniciar sesión', error);
