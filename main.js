@@ -34,6 +34,9 @@ for(const file of readdirSync("./events/")){
     }
 }
 
+
+// Creación del servidor.
+
 // Inicio de sesión
 client.login(process.env.TOKEN)
     .then(() => {
