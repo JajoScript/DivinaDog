@@ -8,7 +8,7 @@ const Fish = require("../models/fishs");
 module.exports = async (client, message, arguments1 ) => {
     let rollfish = Math.floor(Math.random() * 7) +1;
     
-    var fishGiven, golden, normal, cart;
+    var golden, normal, cart;
 
     if(rollfish === 1){
         message.channel.send("Felicitaciones, " + message.author.username + "! pescaste: :tropical_fish:");
@@ -23,18 +23,13 @@ module.exports = async (client, message, arguments1 ) => {
         golden = 0; normal = 0; cart = 1;
     }
 
-    console.log("[Golden]", golden);
-    console.log("[normal]", normal);
-    console.log("[cart]", cart);
-
-
     await Fish.findOne({
         userID : message.author.id
     }, (error, schema) => {
         if(error) console.log(error);
 
         if(!schema){
-            console.log("[DB] Squema no encontrado");
+            //console.log("[DB] Squema no encontrado");
 
             new_Schema = new Fish({
                 _id : mongoose.Types.ObjectId(),
@@ -46,7 +41,7 @@ module.exports = async (client, message, arguments1 ) => {
             });
         
 
-            console.log("[DB] creado nuevo usuario fish");
+            //console.log("[DB] creado nuevo usuario fish");
 
             new_Schema.save()
                 .then(resultado => console.log(resultado))
@@ -54,15 +49,11 @@ module.exports = async (client, message, arguments1 ) => {
 
         }
         else if(schema){
-            console.log("[DB] Squema encontrado");
+            //console.log("[DB] Squema encontrado");
             
             const newGolden = schema.golden + golden;
             const newNormal = schema.normal + normal;
             const newCart = schema.cart + cart;
-
-            console.log("[newGolden]", newGolden);
-            console.log("[newNormal]", newNormal);
-            console.log("[newCart]", newCart);
 
             schema.updateOne({
                 golden: newGolden,

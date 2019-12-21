@@ -38,14 +38,14 @@ module.exports = (client, message, arguments) => {
                 respects: 1
             });
 
-            console.log("[DB] creado nuevo usuario Respect");
+            //console.log("[DB] creado nuevo usuario Respect");
 
             new_Schema.save()
                 .then((resultado) => console.log(resultado))
                 .catch((error) => console.log(error));
         }
         else if(schema){
-            console.log("[DB] Schema found");
+            //console.log("[DB] Schema found");
             const respetos = schema.respects + 1;
             
             // Actualizacion de datos.
