@@ -42,18 +42,11 @@ module.exports = (client, message, arguments) => {
         }
         else if(schema){
             console.log("[DB] Schema found");
-            console.log(schema);
-            console.log(schema.respects);
+            const respetos = schema.respects + 1;
             
-            let respetos = schema.respects + 1;
-            console.log(respetos);
-
-            schema.overwrite({
-                _id: mongoose.Types.ObjectId(),
-                username: userRespect.user.username,
-                userID: userRespect.id,
+            schema.updateOne({
                 respects: respetos
-            });
+            }).catch(error => console.log(error));
 
             schema.save()
                 .then((resultado) => console.log(resultado))
