@@ -18,7 +18,8 @@ for(const file of readdirSync("./commands/")){
     // Filtro de archivos.
     if(file.endsWith(".js")){
         let fileName = file.substring(0, file.length - 3);
-        let fileContent = require("./commands/" + file);
+        let rute = "./commands/" + file;
+        let fileContent = require(rute);
         client.commands.set(fileName, fileContent);
     }
 }
@@ -28,7 +29,8 @@ for(const file of readdirSync("./events/")){
     // Filtro de archivos.
     if(file.endsWith(".js")){
         let fileName = file.substring(0, file.length - 3);
-        let fileContent = require("./events/" + file);
+        let rute = "./events/" + file;
+        let fileContent = require(rute);
         client.on(fileName, fileContent.bind(null, client));
 
         delete require.cache[require.resolve("./events/" + file)];
@@ -51,7 +53,7 @@ app.listen((process.env.PORT || 3000), () => {
 // Inicio de sesión
 client.login(process.env.TOKEN)
     .then(() => {
-        console.log(`[BOT] Estoy listo, soy ${client.user.tag}`);
+        // console.log(`[BOT] Estoy listo, soy ${client.user.tag}`);
     })
     .catch((error) => {
         // console.error('[ERROR] Error al iniciar sesión', error);
