@@ -6,6 +6,7 @@ const { format } = require('timeago.js');
 // Importación del modelo.
 const Bip = require("../models/bips.js");
 const Respect = require("../models/respects.js");
+const Fish = require("../models/fishs.js");
 
 // Creacion del comando.
 module.exports = async (client, message, arguments) => {
@@ -60,9 +61,31 @@ module.exports = async (client, message, arguments) => {
         }
     });
     
+    await Fish.findOne({
+        userID: message.author.id
+    }, (error, schema) => {
+        if(error){
+            console.log(`[ERROR] ${error}`);
+        }
+
+        console.log(schema);
+        // Asignación de datos segun esquema.
+        if(!schema){
+            console.log("[DB] esquema no encontrado");
+            profileEmbed
+                .addField("🎣 Atrapados:", ":tropical_fish: 0 :fish: 0 :shopping_cart: 0");
+
+        }
+        else if(schema){
+            console.log("[DB] esquema encontrado");
+            profileEmbed
+                .addField("🎣 Atrapados:", ":tropical_fish: 0 :fish: 0 :shopping_cart: 0");
+        }
+    });
+
+    // Proximamente
     profileEmbed
         .addField(":octagonal_sign: Reports:", "Proximamente...")
-        .addField("Fish:", ":tropical_fish: 0 :fish: 0 :shopping_cart: 0 \nProximamente...")
     
     message.channel.send(profileEmbed);
 };
