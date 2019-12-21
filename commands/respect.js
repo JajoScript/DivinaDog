@@ -15,6 +15,10 @@ module.exports = (client, message, arguments) => {
         message.reply("Disculpe, debe mencionar a alguien.");
         return
     }
+    else if(userRespect.id === message.author.id){
+        message.reply("Disculpe, no se puede dar respetos a usted mismo.");
+        return
+    }
 
     const respectEmbed = new RichEmbed()
         .setTitle(userRespect.user.username + " ha recibido respetos")

@@ -46,6 +46,7 @@ module.exports = (client, message, arguments) => {
         .addField('pokear', 'le hago spam al usuario que me indiques', true)
         .addField('github', 'Entrego información sobre el perfil de github', true)
         .addField('zivalo', 'Envio un hermoso ZivaloFace', true)
+        .addField('respect', 'Le doy un respeto a una persona', true)
 
         .addField('Invitacion', `[Link de invitacion](${process.env.INVITATION || 'http://javier.com'})`, true)
         .addField('Repositorio', `[Link de github](${process.env.REPOSITORY || 'https://github.com/JajoScript/DivinaDog'})`, true)
