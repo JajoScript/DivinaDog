@@ -11,15 +11,15 @@ module.exports = async (client, message, arguments1 ) => {
     var fishGiven, golden, normal, cart;
 
     if(rollfish === 1){
-        message.channel.send("Felicitaciones, " + message.author.username + "! pescaste: :tropical_fish: +3 puntos");
+        message.channel.send("Felicitaciones, " + message.author.username + "! pescaste: :tropical_fish:");
         golden = 1; normal = 0; cart = 0;
 
     }else if(rollfish === 2){
-        message.channel.send("Felicitaciones, " + message.author.username + "! pescaste: :fish: +2 puntos");
+        message.channel.send("Felicitaciones, " + message.author.username + "! pescaste: :fish:");
         golden = 0; normal = 1; cart = 0;
 
     }else { 
-        message.channel.send("Que mal :(, " + message.author.username + "! pescaste: :shopping_cart: +0 puntos");
+        message.channel.send("Que mal :(, " + message.author.username + "! pescaste: :shopping_cart:");
         golden = 0; normal = 0; cart = 1;
     }
 
