@@ -5,8 +5,8 @@ module.exports = (client, message, arguments) => {
     message.delete();
     message.channel.send({
         files: [{
-          attachment: './images/zivalo.jpg',
-          name: 'zivalo.jpg'
+          attachment: './images/Zivalo.jpg',
+          name: 'Zivalo.jpg'
         }]
     });
 };
