@@ -73,13 +73,13 @@ module.exports = async (client, message, arguments) => {
         if(!schema){
             console.log("[DB] esquema no encontrado");
             profileEmbed
-                .addField("🎣 Atrapados:", ":tropical_fish: 0 :fish: 0 :shopping_cart: 0");
+                .addField("🎣 Atrapados:", "Usted aún no va a pescar.");
 
         }
         else if(schema){
             console.log("[DB] esquema encontrado");
             profileEmbed
-                .addField("🎣 Atrapados:", ":tropical_fish: 0 :fish: 0 :shopping_cart: 0");
+                .addField("🎣 Atrapados:", ":tropical_fish: "+ schema.golden + " :fish: " + schema.normal + " :shopping_cart: "+ schema.cart);
         }
     });
 
