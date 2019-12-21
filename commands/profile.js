@@ -61,7 +61,8 @@ module.exports = async (client, message, arguments) => {
     });
     
     profileEmbed
-        .addField(":octagonal_sign: Reports:", "Proximamente...");
+        .addField(":octagonal_sign: Reports:", "Proximamente...")
+        .addField("Fish:", ":tropical_fish: 0 :fish: 0 :shopping_cart: 0 \nProximamente...")
     
     message.channel.send(profileEmbed);
 };
