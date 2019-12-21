@@ -3,7 +3,7 @@ const { Attachment } = require('discord.js');
 
 // Creación del comando.
 module.exports = (client, message, arguments) => {
-    const attachment = new Attachment('https://imgur.com/hX1A67R');
+    const attachment = new Attachment('https://imgur.com/hX1A67R.jpg');
     message.delete();
     message.channel.send(attachment);
 };
