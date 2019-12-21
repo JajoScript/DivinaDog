@@ -44,6 +44,7 @@ module.exports = (client, message, arguments) => {
             console.log("[DB] Schema found");
             const respetos = schema.respects + 1;
             
+            // Actualizacion de datos.
             schema.updateOne({
                 respects: respetos
             }).catch(error => console.log(error));
