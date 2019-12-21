@@ -1,5 +1,5 @@
 // Importación de modulos.
-const Discord = require('discord.js');
+const {RichEmbed} = require('discord.js');
 
 // Creación del comando.
 module.exports = (client, message, arguments) => {
@@ -68,7 +68,7 @@ module.exports = (client, message, arguments) => {
 
                     if (reaction.emoji.name === '👉') {
                         message.delete();
-                        message.author.send(helpEmbed2);
+                        message.channel.send(helpEmbed2);
                     }
                 })
                 .catch((error) => {
