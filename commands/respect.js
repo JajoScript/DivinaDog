@@ -35,7 +35,7 @@ module.exports = (client, message, arguments) => {
                 _id: mongoose.Types.ObjectId(),
                 username: userRespect.user.username,
                 userID: userRespect.id,
-                respects: 0
+                respects: 1
             });
 
             console.log("[DB] creado nuevo usuario Respect");
