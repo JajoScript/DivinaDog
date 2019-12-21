@@ -1,5 +1,9 @@
 // Importacion de dependencias.
-const {RichEmbed} = require("discord.js");
+const { RichEmbed } = require("discord.js");
+const mongoose = require("mongoose");
+
+// Importación del esquema.
+const Respect = require("../models/respects.js");
 
 // Creación del comando.
 module.exports = (client, message, arguments) => {
@@ -7,7 +11,7 @@ module.exports = (client, message, arguments) => {
     message.delete();
 
     // Filtro de errores.
-    if(!userRespect){
+    if (!userRespect) {
         message.reply("Disculpe, debe mencionar a alguien.");
         return
     }
@@ -17,7 +21,44 @@ module.exports = (client, message, arguments) => {
         .setColor("GRAY")
 
     message.channel.send(respectEmbed);
-    
 
+    Respect.findOne({
+        userID: userRespect.id
+    }, (error, schema) => {
+        if (!schema) {
+            // New Profile
+            new_Schema = new Respect({
+                _id: mongoose.Types.ObjectId(),
+                username: userRespect.user.username,
+                userID: userRespect.id,
+                respects: 0
+            });
+
+            console.log("[DB] creado nuevo usuario Respect");
+
+            new_Schema.save()
+                .then((resultado) => console.log(resultado))
+                .catch((error) => console.log(error));
+        }
+        else if(schema){
+            console.log("[DB] Schema found");
+            console.log(schema);
+            console.log(schema.respects);
+            
+            let respetos = schema.respects + 1;
+            console.log(respetos);
+
+            schema.overwrite({
+                _id: mongoose.Types.ObjectId(),
+                username: userRespect.user.username,
+                userID: userRespect.id,
+                respects: respetos
+            });
+
+            schema.save()
+                .then((resultado) => console.log(resultado))
+                .catch((error) => console.log(error));
+        }
+    });
 
 };

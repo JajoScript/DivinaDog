@@ -54,7 +54,7 @@ module.exports = async (client, message, arguments) => {
         
                     new_Schema.save()
                         .then(resultado => console.log(resultado))
-                        .catch(err => console.log(err))
+                        .catch(error => console.log(error))
                 }
                 else if(schema){
                     console.log("[DB] Esquema encontrado!");
