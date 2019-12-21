@@ -17,7 +17,7 @@ module.exports = async (client, message, arguments) => {
         .addField(":tada: Fecha de creacion:", format(message.author.createdAt))
         .addField(":ticket: Identificador:", message.author.id)
         .setFooter("Server: " + message.guild)
-        .setThumbnail(message.author.displayAvatarURL)
+        .setThumbnail(message.author.displayAvatarURL);
 
     await Bip.findOne({
         userID: message.author.id
@@ -36,7 +36,7 @@ module.exports = async (client, message, arguments) => {
         }
         else if(schema){
             console.log("[DB] esquema encontrado");
-            profileEmbed.addField(":credit_card: Tarjetas: ", schema.bip)
+            profileEmbed.addField(":credit_card: Tarjetas: ", schema.bip);
         }
     });
 
@@ -56,9 +56,12 @@ module.exports = async (client, message, arguments) => {
         }
         else if(schema){
             console.log("[DB] esquema encontrado");
-            profileEmbed.addField(":trophy: Respetos: ", schema.respects)
+            profileEmbed.addField(":trophy: Respetos: ", schema.respects);
         }
     });
+    
+    profileEmbed
+        .addField(":octagonal_sign: Reports:", "Proximamente...");
     
     message.channel.send(profileEmbed);
 };
