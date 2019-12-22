@@ -31,12 +31,12 @@ module.exports = async (client, message, arguments) => {
         
         // Asignación de datos segun esquema.
         if(!schema){
-            console.log("[DB] esquema no encontrado");
+            console.log("[DB] esquema bip no encontrado");
             profileEmbed.addField(":credit_card: Tarjetas: ", "Tarjetas no encontradas :(");
 
         }
         else if(schema){
-            console.log("[DB] esquema encontrado");
+            console.log("[DB] esquema bip encontrado");
             profileEmbed.addField(":credit_card: Tarjetas: ", schema.bip);
         }
     });
@@ -51,12 +51,12 @@ module.exports = async (client, message, arguments) => {
         console.log(schema);
         // Asignación de datos segun esquema.
         if(!schema){
-            console.log("[DB] esquema no encontrado");
+            console.log("[DB] esquema respect no encontrado");
             profileEmbed.addField(":trophy: Respetos: ", "Aún no tienes respetos :(");
 
         }
         else if(schema){
-            console.log("[DB] esquema encontrado");
+            console.log("[DB] esquema respect encontrado");
             profileEmbed.addField(":trophy: Respetos: ", schema.respects);
         }
     });
@@ -71,21 +71,18 @@ module.exports = async (client, message, arguments) => {
         console.log(schema);
         // Asignación de datos segun esquema.
         if(!schema){
-            console.log("[DB] esquema no encontrado");
-            profileEmbed
-                .addField("🎣 Atrapados:", "Usted aún no va a pescar.");
+            console.log("[DB] esquema fish no encontrado");
+            profileEmbed.addField("🎣 Atrapados:", "Usted aún no va a pescar :(");
 
         }
         else if(schema){
-            console.log("[DB] esquema encontrado");
-            profileEmbed
-                .addField("🎣 Atrapados:", ":tropical_fish: "+ schema.golden + " :fish: " + schema.normal + " :shopping_cart: "+ schema.cart);
+            console.log("[DB] esquema fish encontrado");
+            profileEmbed.addField("🎣 Atrapados:", ":tropical_fish: "+ schema.golden + " :fish: " + schema.normal + " :shopping_cart: "+ schema.cart);
         }
     });
 
     // Proximamente
-    profileEmbed
-        .addField(":octagonal_sign: Reports:", "Proximamente...")
+    await profileEmbed.addField(":octagonal_sign: Reports:", "Proximamente...")
     
-    message.channel.send(profileEmbed);
+    await message.channel.send(profileEmbed);
 };
