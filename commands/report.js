@@ -1,6 +1,11 @@
 // Importación de modulos.
 const { RichEmbed } = require("discord.js");
 const { stripIndents } = require("common-tags");
+const mongoose = require("mongoose");
+
+// Importación de modelos.
+const Report = require("../models/reports.js");
+const { Mongoose } = require("mongoose");
 
 // Creacion del comando.
 module.exports = (client, message, arguments) => {
@@ -28,6 +33,38 @@ module.exports = (client, message, arguments) => {
         **- Reportado por:** ${message.member}
         **- Reportado en:** ${message.channel}
         **- Razón:** ${arguments.slice(1).join(" ")}`);
+
+    // Cargando la base de datos
+    Report.findOne({
+        userID: rMember.id
+    }, (error, schema) => {
+        if(!schema){
+            // New Profile for reports
+            newSchema = new Report({
+                _id: mongoose.Types.ObjectId(),
+                userID: rMember.id,
+                username: rMember.user.username,
+                reports: 1
+            });
+
+            newSchema.save()
+                .then((resultado) => console.log(resultado))
+                .catch((error) => console.log(error));
+        }
+        else if(schema){
+            const reports = schema.reports + 1;
+
+            // Actualizando los datos.
+            schema.updateOne({
+                reports: reports
+            }).then(result => console.log(result))
+            .catch(error => console.log(error));
+
+            schema.save()
+                .then(save => console.log(save))
+                .catch(error => console.log(error));
+        }
+    });
 
     return channel.send(embed);
 };

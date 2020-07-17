@@ -38,8 +38,6 @@ module.exports = (client, message, arguments) => {
                 respects: 1
             });
 
-            //console.log("[DB] creado nuevo usuario Respect");
-
             new_Schema.save()
                 .then((resultado) => console.log(resultado))
                 .catch((error) => console.log(error));

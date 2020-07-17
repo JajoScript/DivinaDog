@@ -7,6 +7,7 @@ const { format } = require('timeago.js');
 const Bip = require("../models/bips.js");
 const Respect = require("../models/respects.js");
 const Fish = require("../models/fishs.js");
+const Report = require("../models/reports.js");
 
 // Creacion del comando.
 module.exports = async (client, message, arguments) => {
@@ -81,8 +82,25 @@ module.exports = async (client, message, arguments) => {
         }
     });
 
-    // Proximamente
-    await profileEmbed.addField(":octagonal_sign: Reports:", "Proximamente...")
+    await Report.findOne({
+        userID: message.author.id
+    }, (error, schema)  => {
+        if(error){
+            console.log(`[ERROR] ${error}`)
+        }
+
+        console.log(schema);
+        if(!schema){
+            console.log("[DB] esquema reports no encontrado");
+            profileEmbed.addField(":octagonal_sign: Reports:", "Usted aún no recibe un report");
+
+        }
+        else if(schema){
+            console.log("[DB] esquema report encontrado");
+            profileEmbed.addField(":octagonal_sign: Reports:", schema.reports)
+        }
+
+    });
     
-    await message.channel.send(profileEmbed);
+    message.channel.send(profileEmbed);
 };
