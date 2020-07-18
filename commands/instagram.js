@@ -11,12 +11,21 @@ module.exports = async (client, message, arguments) => {
 
     const url = `https://instagram.com/${name}/?__a=1`;
  
+    //     let url = 'https://example.com';
+
+    // fetch(url)
+    // .then(res => res.json())
+    // .then((out) => {
+    //   console.log('Checkout this JSON! ', out);
+    // })
+    // .catch(err => { throw err });
+
     try {
         const response = await fetch(url)
-        .then(url => url.json())
-        .catch(error => {
-            console.error(error);
-        });
+            .then(url => url.json() )
+            .catch(error => {
+                throw error;
+            });
 
         const account = response.graphql.user;
 
