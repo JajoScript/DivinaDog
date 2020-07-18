@@ -10,13 +10,14 @@ module.exports = async (client, message, arguments) => {
     if(!name) message.reply('Disculpe, necesito un nombre para trabajar.');
 
     const url = `https://instagram.com/${name}/?__a=1`;
-    const response = await fetch(url)
+ 
+    try {
+        const response = await fetch(url)
         .then(url => url.json())
         .catch(error => {
             console.error(error);
         });
-    
-    try {
+
         const account = response.graphql.user;
 
         const instagramEmbed  = new RichEmbed()
