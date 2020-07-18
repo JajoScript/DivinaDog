@@ -7,21 +7,19 @@ const fetch = require('node-fetch');
 module.exports = async (client, message, arguments) => {
     const name = arguments.join(' ');
 
-    if(!name) { message.reply('Disculpe, necesito un nombre para trabajar.'); }
+    if(!name) message.reply('Disculpe, necesito un nombre para trabajar.');
+
     const url = `https://instagram.com/${name}/?__a=1`;
     const response = await fetch(url)
         .then(url => url.json())
         .catch(error => {
-            message.reply('Disculpe, no pude encontrarlo');
             console.error(error);
         });
+    
+    try {
+        const account = response.graphql.user;
 
-    if(!response.graphql.user.username){
-        message.reply("Disculpe, no lo pude encontrar");
-    }
-    const account = response.graphql.user;
-
-    const instagramEmbed  = new RichEmbed()
+        const instagramEmbed  = new RichEmbed()
         .setColor("RANDOM")
         .setTitle(account.full_name)
         .setThumbnail(account.profile_pic_url_hd)
@@ -36,6 +34,8 @@ module.exports = async (client, message, arguments) => {
         **- Cuenta Privada:** ${account.is_private ? "si": "no"}
         `)
 
-    message.channel.send(instagramEmbed);
-    console.log(response);
+        message.channel.send(instagramEmbed);
+    } catch {
+        message.reply("Disculpe, no lo pude encontrar");
+    }
 };

@@ -13,6 +13,7 @@ module.exports = (client, message) => {
     
     time = ((60 * 1000) * 60) * 24;
     client.setInterval(() => {
+        console.log("[info] Intervalo iniciado.");
         message.channel.send("*Otro dia para decir: la base de datos esta **carggggada** de informacion.*");
     }, time);
 
