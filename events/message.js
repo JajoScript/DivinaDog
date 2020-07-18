@@ -11,6 +11,12 @@ module.exports = (client, message) => {
     else if(message.content.toLowerCase() == 'gn') return message.reply('Buenas noches!');
     else if(message.content.toLowerCase() == 'te amo') return message.reply('Yo te amo más!');
     
+    // Intervalo.
+    let Interval = setInterval(() => {
+        message.channel.send("mensaje de prueba!")
+        .catch((err) => { console.log(err) });
+    }, 1 * 1000);
+
     if(!message.content.startsWith(process.env.PREFIX)) return;
     if(message.author.bot) return;
 
