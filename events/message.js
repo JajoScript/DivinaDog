@@ -12,7 +12,7 @@ module.exports = (client, message) => {
     else if(message.content.toLowerCase() == 'te amo') return message.reply('Yo te amo más!');
     
     time = ((60 * 1000) * 60) * 24;
-    client.setTimeout(() => {
+    client.setInterval(() => {
         message.channel.send("*Otro dia para decir: la base de datos esta **carggggada** de informacion.*");
     }, time);
 
