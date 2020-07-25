@@ -11,37 +11,43 @@ module.exports = async (client, message, arguments) => {
 
     const url = `https://instagram.com/${name}/?__a=1`;
 
-    const res = await fetch(url, {
+    await fetch(url, {
         method: "GET",
         mode: "cors",
         cache: "no-cahe",
         headers: {
             'Content-type': 'application/json'
         },
-        body: JSON.stringify()
-    }).then(response => response.json());
+    })
+    .then(res => res.text())
+        .then(text => { 
+            let info = JSON.parse(text);
+            console.log(info);
 
-    if(!res.graphql.user.username){
-        return message.reply("Disculpe, no lo pude encontrar");
-    }
-    else{
-        const account = res.graphql.user;
+            if(!info.graphql.user.username){
+                return message.reply("Disculpe, no lo pude encontrar");
+            }
 
-        const instagramEmbed  = new RichEmbed()
-            .setColor("RANDOM")
-            .setTitle(account.full_name)
-            .setThumbnail(account.profile_pic_url_hd)
-            .setURL(account.external_url_linkshimmed)
-            .addField("Información del perfil", stripIndents`
-            **- Usuario:** ${account.username}
-            **- Nombre Completo:** ${account.full_name}
-            **- Biografia:** \n${account.biography.length === 0 ? "none": account.biography}
-            **- Posts:** ${account.edge_owner_to_timeline_media.count}
-            **- Seguidores:** ${account.edge_followed_by.count}
-            **- Siguiendo:** ${account.edge_follow.count}
-            **- Cuenta Privada:** ${account.is_private ? "si": "no"}
-            `)
+            const account = info.graphql.user;
+            const instagramEmbed  = new RichEmbed()
+                .setColor("RANDOM")
+                .setTitle(account.full_name)
+                .setThumbnail(account.profile_pic_url_hd)
+                .setURL(account.external_url_linkshimmed)
+                .addField("Información del perfil", stripIndents`
+                **- Usuario:** ${account.username}
+                **- Nombre Completo:** ${account.full_name}
+                **- Biografia:** \n${account.biography.length === 0 ? "none": account.biography}
+                **- Posts:** ${account.edge_owner_to_timeline_media.count}
+                **- Seguidores:** ${account.edge_followed_by.count}
+                **- Siguiendo:** ${account.edge_follow.count}
+                **- Cuenta Privada:** ${account.is_private ? "si": "no"}
+                `)
 
-        message.channel.send(instagramEmbed);
-    } 
+            message.channel.send(instagramEmbed);
+        })
+    .catch(err => {
+        console.log(err)
+        message.reply("Disculpe, no lo pude encontrar")
+    });
 };
