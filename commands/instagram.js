@@ -11,7 +11,15 @@ module.exports = async (client, message, arguments) => {
 
     const url = `https://instagram.com/${name}/?__a=1`;
 
-    const res = await fetch(url).then(url => url.json() );
+    const res = await fetch(url, {
+        method: "GET",
+        mode: "cors",
+        cache: "no-cahe",
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify()
+    }).then(response => response.json());
 
     if(!res.graphql.user.username){
         return message.reply("Disculpe, no lo pude encontrar");
