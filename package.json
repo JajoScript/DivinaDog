@@ -10,7 +10,7 @@
   "author": "Jajoscript",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "bip": "^3.0.2",
     "common-tags": "^1.8.0",
     "countdown": "^2.6.0",
