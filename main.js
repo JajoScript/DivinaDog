@@ -1,5 +1,5 @@
 // Importación de variables de entorno.
-require("dotenv").config();
+require('dotenv').config();
 
 // Importación de modulos.
 const Discord = require("discord.js");

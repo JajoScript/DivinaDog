@@ -10,22 +10,17 @@ module.exports = (client, message) => {
     else if(message.content.toLowerCase() == 'gn') return message.reply('Buenas noches!');
     else if(message.content.toLowerCase() == 'te amo') return message.reply('Yo te amo más!');
     else if (message.content == "https://giant.gfycat.com/LeafyRashAmethystgemclam.mp4" || message.content == "https://gfycat.com/joyousrealgoldfish" ){
-        message.channel.bulkDelete(1)
-        message.reply("Que estai mandando maldito desgraciado")
+        message.channel.bulkDelete(1);
+        message.reply("Que estai mandando maldito desgraciado");
     }
 
-    // time = ((60 * 1000) * 60) * 24;
-    // client.setInterval(() => {
-    //     console.log("[info] Intervalo iniciado.");
-    //     message.channel.send("*Otro dia para decir: la base de datos esta **carggggada** de informacion.*");
-    // }, time);
-
-    if(!message.content.startsWith(process.env.PREFIX)) return;
+    if(!message.content.startsWith("$")) return;
     if(message.author.bot) return;
 
     //Definicion de comandos y argumentos.
     const arguments = message.content.slice(process.env.PREFIX.length).trim().split(/ +/g);
     const command = arguments.shift().toLowerCase();
+
 
     let Command = client.commands.get(command);
     if(!Command) return;

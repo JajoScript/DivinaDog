@@ -22,6 +22,8 @@ module.exports = (client) => {
             // console.log("[DB] Base de datos no conectada!");
             // console.log(error);
         });
+
+    console.log("[DEV] Bot ready!")
 };
 
 
