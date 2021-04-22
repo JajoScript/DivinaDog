@@ -10,7 +10,15 @@ module.exports = (client, message) => {
     if(message.content.toLowerCase() == 'gd') return message.reply('Buenos dias!');
     else if(message.content.toLowerCase() == 'gn') return message.reply('Buenas noches!');
     else if(message.content.toLowerCase() == 'te amo') return message.reply('Yo te amo más!');
-    
+    else if (message.content == "https://giant.gfycat.com/LeafyRashAmethystgemclam.mp4"){
+        message.delete()
+        message.reply("Que estai mandando maldito desgraciado")
+    }
+    else if(message.content == "https://giant.gfycat.com/LeafyRashAmethystgemclam.mp4"){
+        message.delete()
+        message.reply("Que estai mandando maldito desgraciado")
+    }
+
     // time = ((60 * 1000) * 60) * 24;
     // client.setInterval(() => {
     //     console.log("[info] Intervalo iniciado.");
